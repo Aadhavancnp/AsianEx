@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXCheckbox?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.mfxresources.fonts.MFXFontIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.*?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity"
+           minHeight="-Infinity"
+           minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@../Css/MainStyle.css"
+           xmlns="http://javafx.com/javafx/21" fx:controller="com.tourism.asianex.Controllers.LoginController">
+    <children>
+        <AnchorPane fx:id="container" prefHeight="200.0" prefWidth="200.0" styleClass="bg-round">
+            <children>
+                <HBox fx:id="windowHeader" alignment="CENTER_RIGHT" layoutY="6.0" prefHeight="50.0" prefWidth="1281.0"
+                      spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                      AnchorPane.topAnchor="0.0">
+                    <padding>
+                        <Insets right="20.0"/>
+                    </padding>
+                    <MFXFontIcon fx:id="alwaysOnTopIcon" description="fas-circle" size="15.0"
+                                 styleClass="always-on-top-icon"/>
+                    <MFXFontIcon fx:id="minimizeIcon" description="fas-circle" size="15.0" styleClass="minimize-icon"/>
+                    <MFXFontIcon fx:id="closeIcon" description="fas-circle" size="15.0" styleClass="close-icon"/>
+                </HBox>
+                <VBox fx:id="loginPane" alignment="CENTER" layoutX="20.0" layoutY="16.0" prefHeight="686.0"
+                      prefWidth="482.0">
+                    <children>
+                        <ImageView fitHeight="686.0" fitWidth="482.0" pickOnBounds="true" preserveRatio="true"
+                                   style="-fx-scale-y: 1.075;">
+                            <image>
+                                <Image url="@../Images/login.jpg"/>
+                            </image>
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                        </ImageView>
+                    </children>
+                </VBox>
+                <Label alignment="CENTER" layoutX="520.0" layoutY="50.0" prefHeight="115.0" prefWidth="532.0"
+                       text="Welcome Back!" textAlignment="JUSTIFY">
+                    <font>
+                        <Font name="Cosmata Extra Bold" size="50.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="596.0" layoutY="173.0" prefHeight="38.0" prefWidth="148.0" text="Email"
+                       textFill="#8f8f8fc2">
+                    <font>
+                        <Font name="Cosmata Semi Bold" size="25.0"/>
+                    </font>
+                </Label>
+                <MFXTextField id="emailvalidatedField" fx:id="emailField" floatMode="DISABLED" floatingTextGap="0.0"
+                              layoutX="595.0" layoutY="219.0" prefHeight="54.0" prefWidth="428.0"
+                              promptText="Enter your Email" styleClass="semi-bold">
+                    <font>
+                        <Font name="Cosmata Semi Bold" size="25.0"/>
+                    </font>
+                    <textFill>
+                        <Color/>
+                    </textFill>
+                </MFXTextField>
+                <Label layoutX="596.0" layoutY="295.0" prefHeight="38.0" prefWidth="148.0" text="Password"
+                       textFill="#8f8f8fc2">
+                    <font>
+                        <Font name="Cosmata Semi Bold" size="25.0"/>
+                    </font>
+                </Label>
+                <MFXButton id="loginBtn" layoutX="597.0" layoutY="480.0" onAction="#login" prefHeight="54.0"
+                           prefWidth="428.0" rippleRadius="20.0"
+                           style="-fx-background-color: #2296f2; -fx-text-fill: white;" text="Login" textFill="WHITE">
+                    <font>
+                        <Font name="Cosmata Extra Bold" size="25.0"/>
+                    </font>
+                </MFXButton>
+                <MFXCheckbox id="rememberMe" gap="5.0" layoutX="597.0" layoutY="417.0" prefHeight="49.0"
+                             prefWidth="221.0" text="Remember Me" textAlignment="JUSTIFY" textExpand="true"
+                             textFill="#8f8f8f99">
+                    <font>
+                        <Font name="Cosmata Bold" size="23.0"/>
+                    </font>
+                </MFXCheckbox>
+                <MFXPasswordField id="passwordvalidatedField" fx:id="passwordField" floatMode="DISABLED" layoutX="595.0"
+                                  layoutY="340.0" prefHeight="54.0" prefWidth="428.0" promptText="Enter your Password"
+                                  styleClass="semi-bold">
+                    <font>
+                        <Font name="Cosmata Semi Bold" size="25.0"/>
+                    </font>
+                </MFXPasswordField>
+                <Label id="passwordvalidationLabel" fx:id="passwordvalidationLabel" layoutX="602.0" layoutY="403.0"
+                       prefHeight="17.0" prefWidth="418.0" text="Label" textFill="#ef6e6b" visible="false"
+                       wrapText="true">
+                    <font>
+                        <Font name="Cosmata Medium" size="12.0"/>
+                    </font>
+                </Label>
+                <Label id="emailvalidationLabel" fx:id="emailvalidationLabel" layoutX="602.0" layoutY="280.0"
+                       prefHeight="17.0" prefWidth="418.0" text="Label" textFill="#ef6e6b" visible="false"
+                       wrapText="true">
+                    <font>
+                        <Font name="Cosmata Medium" size="12.0"/>
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="598.0" layoutY="546.0" prefHeight="41.0" prefWidth="284.0"
+                       text="Create New Account?">
+                    <font>
+                        <Font name="Cosmata Semi Bold" size="25.0"/>
+                    </font>
+                </Label>
+                <Hyperlink layoutX="870.0" layoutY="545.0" onAction="#register" prefHeight="41.0" prefWidth="120.0"
+                           text="Register" textFill="#2296f2">
+                    <font>
+                        <Font name="Cosmata Extra Bold" size="25.0"/>
+                    </font>
+                </Hyperlink>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

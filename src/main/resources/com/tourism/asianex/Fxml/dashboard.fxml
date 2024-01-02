@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.calendarfx.view.YearMonthView?>
+<?import io.github.palexdev.mfxresources.fonts.MFXFontIcon?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.*?>
+<Pane xmlns:fx="http://javafx.com/fxml/1" styleClass="bg-round" stylesheets="@../Css/MainStyle.css"
+      xmlns="http://javafx.com/javafx/21" fx:controller="com.tourism.asianex.Controllers.DashboardController">
+    <children>
+        <HBox prefHeight="233.0" prefWidth="811.0" spacing="10.0">
+            <children>
+                <Pane prefHeight="179.0" prefWidth="296.0"
+                      style="-fx-background-color: linear-gradient(to right, #ff0f7b, #f89b29);" styleClass="bg-round">
+                    <HBox.margin>
+                        <Insets left="5.0" top="5.0"/>
+                    </HBox.margin>
+                    <children>
+                        <Label layoutX="34.0" layoutY="114.0" prefHeight="89.0" prefWidth="208.0" text="123K"
+                               textFill="WHITE">
+                            <font>
+                                <Font name="Cosmata Extra Bold" size="48.0"/>
+                            </font>
+                        </Label>
+                        <Label layoutX="27.0" layoutY="33.0" prefHeight="72.0" prefWidth="175.0" text="Cities"
+                               textFill="WHITE">
+                            <font>
+                                <Font name="Cosmata Extra Bold" size="50.0"/>
+                            </font>
+                        </Label>
+                        <MFXFontIcon description="fas-city" layoutX="187.0" layoutY="84.0" size="36">
+                            <color>
+                                <Color red="1.0" green="1.0" blue="1.0"/>
+                            </color>
+                        </MFXFontIcon>
+                    </children>
+                </Pane>
+                <Pane prefHeight="224.0" prefWidth="298.0"
+                      style="-fx-background-color: linear-gradient(to right, #00EBFF, #0080FF, #0000FF);"
+                      styleClass="bg-round">
+                    <HBox.margin>
+                        <Insets top="5.0"/>
+                    </HBox.margin>
+                    <children>
+                        <Label layoutX="16.0" layoutY="26.0" prefHeight="65.0" prefWidth="235.0" text="Popular "
+                               textFill="WHITE">
+                            <font>
+                                <Font name="Cosmata Extra Bold" size="45.0"/>
+                            </font>
+                        </Label>
+                        <Label layoutX="16.0" layoutY="83.0" prefHeight="49.0" prefWidth="235.0" text="Destinations"
+                               textFill="WHITE">
+                            <font>
+                                <Font name="Cosmata Extra Bold" size="37.0"/>
+                            </font>
+                        </Label>
+                        <MFXFontIcon description="fas-location-dot" layoutX="215.0" layoutY="77.0" size="38">
+                            <color>
+                                <Color red="1.0" green="1.0" blue="1.0"/>
+                            </color>
+                        </MFXFontIcon>
+                        <Label layoutX="20.0" layoutY="128.0" prefHeight="65.0" prefWidth="201.0" text="27"
+                               textFill="WHITE">
+                            <font>
+                                <Font name="Cosmata Extra Bold" size="48.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane prefHeight="210.0" prefWidth="280.0"
+                      style="-fx-background-color: linear-gradient(to right, #00ff87, #60efff);" styleClass="bg-round">
+                    <HBox.margin>
+                        <Insets right="5.0" top="5.0"/>
+                    </HBox.margin>
+                    <children>
+                        <VBox prefHeight="228.0" prefWidth="249.0">
+                            <children>
+                                <YearMonthView prefHeight="230.0" prefWidth="249.0" showTodayButton="false"
+                                               showWeekNumbers="false"/>
+                            </children>
+                        </VBox>
+                    </children>
+                </Pane>
+            </children>
+        </HBox>
+        <HBox layoutY="253.0" prefHeight="348.0" prefWidth="811.0" spacing="15.0">
+            <children>
+                <Pane prefHeight="343.0" prefWidth="279.0" style="-fx-background-color: black;" styleClass="bg-round">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0"/>
+                    </HBox.margin>
+                    <children>
+                        <VBox fx:id="visitorsBox" prefHeight="348.0" prefWidth="267.0"/>
+                    </children>
+                </Pane>
+                <Pane prefHeight="300.0" prefWidth="540.0"
+                      style="-fx-background-color: linear-gradient(to right, #fff95b, #ff930f);" styleClass="bg-round">
+                    <HBox.margin>
+                        <Insets bottom="5.0" right="5.0"/>
+                    </HBox.margin>
+                    <children>
+                        <HBox fx:id="realTimeVisitorsBox" prefHeight="343.0" prefWidth="523.0"/>
+                    </children>
+                </Pane>
+            </children>
+        </HBox>
+    </children>
+</Pane>

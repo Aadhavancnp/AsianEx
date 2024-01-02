@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import io.github.palexdev.mfxresources.fonts.MFXFontIcon?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<Pane xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../Css/MainStyle.css" xmlns="http://javafx.com/javafx/21"
+      fx:controller="com.tourism.asianex.Controllers.ExploreController">
+    <children>
+        <HBox>
+            <children>
+                <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="372.0">
+                    <children>
+                        <MFXFontIcon description="fas-magnifying-glass" size="23.0" textAlignment="JUSTIFY">
+                            <HBox.margin>
+                                <Insets right="15.0"/>
+                            </HBox.margin>
+                        </MFXFontIcon>
+                        <MFXTextField id="searchField" fx:id="searchField" floatMode="DISABLED" prefHeight="43.0"
+                                      prefWidth="307.0" promptText="Search Places...">
+                            <font>
+                                <Font name="Consolas" size="18.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </MFXTextField>
+                    </children>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                    <padding>
+                        <Insets left="20.0"/>
+                    </padding>
+                </HBox>
+                <Pane prefHeight="60.0" prefWidth="180.0"/>
+                <HBox alignment="CENTER" prefHeight="60.0" prefWidth="183.0" spacing="70.0">
+                    <children>
+                        <MFXIconWrapper fx:id="filterIcon" onMouseClicked="#handleFilterButton" size="32.0"/>
+                        <MFXIconWrapper fx:id="notificationIcon" size="32.0"/>
+                        <MFXIconWrapper fx:id="logoutIcon" onMouseClicked="#logout" size="32.0"/>
+                    </children>
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </HBox>
+            </children>
+        </HBox>
+        <MFXScrollPane fx:id="scrollPane" fitToWidth="true" layoutY="65.0" prefHeight="527.0" prefWidth="811.0">
+            <content>
+                <GridPane fx:id="citiesGrid" prefWidth="200.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                </GridPane>
+            </content>
+        </MFXScrollPane>
+    </children>
+</Pane>

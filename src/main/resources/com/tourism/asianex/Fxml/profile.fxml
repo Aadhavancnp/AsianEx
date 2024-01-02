@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity"
+      prefHeight="621.0" prefWidth="811.0" styleClass="bg-round" stylesheets="@../Css/MainStyle.css"
+      xmlns="http://javafx.com/javafx/21" fx:controller="com.tourism.asianex.Controllers.ProfileController">
+    <children>
+        <Label layoutX="29.0" prefHeight="65.0" prefWidth="748.0" text="Profile Settings">
+            <font>
+                <Font name="Cosmata Extra Bold" size="37.0"/>
+            </font>
+        </Label>
+        <MFXTextField fx:id="usernameField" floatMode="ABOVE" floatingText="Username" layoutX="29.0" layoutY="105.0"
+                      prefHeight="52.0" prefWidth="748.0" promptText="Enter Your Username">
+            <font>
+                <Font name="Cosmata Medium" size="24.0"/>
+            </font>
+        </MFXTextField>
+        <MFXTextField fx:id="phoneField" floatMode="ABOVE" floatingText="Phone" layoutX="31.0" layoutY="289.0"
+                      prefHeight="52.0" prefWidth="748.0" promptText="Enter Your Phone">
+            <font>
+                <Font name="Cosmata Medium" size="24.0"/>
+            </font>
+        </MFXTextField>
+        <MFXDatePicker fx:id="dateOfBirthField" floatMode="ABOVE" floatingText="Date of Birth" layoutX="31.0"
+                       layoutY="380.0" prefHeight="52.0" prefWidth="748.0" promptText="Pick Your Date of Birth"/>
+        <MFXTextField fx:id="emailField" allowEdit="false" editable="false" floatMode="ABOVE" floatingText="Email"
+                      layoutX="29.0" layoutY="198.0" prefHeight="52.0" prefWidth="748.0" promptText="Enter Your Email">
+            <font>
+                <Font name="Cosmata Medium" size="24.0"/>
+            </font>
+        </MFXTextField>
+        <MFXButton buttonType="RAISED" layoutX="37.0" layoutY="520.0" onAction="#updateProfile" prefHeight="52.0"
+                   prefWidth="748.0" rippleColor="#d9d9d9" style="-fx-background-color: -primary-color;"
+                   text="Save Changes" textFill="WHITE">
+            <font>
+                <Font name="Cosmata Extra Bold" size="23.0"/>
+            </font>
+        </MFXButton>
+        <MFXRadioButton fx:id="userRoleRadio" layoutX="221.0" layoutY="450.0" prefHeight="35.0" prefWidth="219.0"
+                        text="User">
+            <font>
+                <Font name="Cosmata Semi Bold" size="23.0"/>
+            </font>
+        </MFXRadioButton>
+        <MFXRadioButton fx:id="adminRoleRadio" layoutX="558.0" layoutY="450.0" prefHeight="35.0" prefWidth="219.0"
+                        text="Admin">
+            <font>
+                <Font name="Cosmata Semi Bold" size="23.0"/>
+            </font>
+        </MFXRadioButton>
+        <Label layoutX="37.0" layoutY="450.0" prefHeight="35.0" prefWidth="115.0" text="Role">
+            <font>
+                <Font name="Cosmata Regular" size="24.0"/>
+            </font>
+        </Label>
+    </children>
+</Pane>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import io.github.palexdev.mfxresources.fonts.MFXFontIcon?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.*?>
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity"
+      prefHeight="665.0" prefWidth="811.0" styleClass="bg-round" stylesheets="@../Css/MainStyle.css"
+      xmlns="http://javafx.com/javafx/21" fx:controller="com.tourism.asianex.Controllers.ChatController">
+    <children>
+        <Label layoutX="42.0" prefHeight="71.0" prefWidth="752.0" text="Chat">
+            <font>
+                <Font name="Cosmata Extra Bold" size="54.0"/>
+            </font>
+        </Label>
+        <HBox alignment="CENTER_RIGHT" layoutX="398.0" layoutY="71.0" prefHeight="60.0" prefWidth="375.0">
+            <children>
+                <MFXFontIcon description="fas-magnifying-glass" size="23.0" textAlignment="JUSTIFY">
+                    <HBox.margin>
+                        <Insets right="15.0"/>
+                    </HBox.margin>
+                </MFXFontIcon>
+                <MFXTextField id="searchField" fx:id="searchField" floatMode="DISABLED" prefHeight="43.0"
+                              prefWidth="307.0">
+                    <font>
+                        <Font name="Consolas" size="18.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </MFXTextField>
+            </children>
+            <padding>
+                <Insets left="20.0"/>
+            </padding>
+        </HBox>
+        <Circle fx:id="profileImage" fill="DODGERBLUE" layoutX="80.0" layoutY="204.0" radius="37.0" stroke="BLACK"
+                strokeType="INSIDE" strokeWidth="0.0"/>
+        <MFXTextField id="chatField" allowEdit="false" animated="false" editable="false" floatMode="DISABLED"
+                      layoutX="130.0" layoutY="180.0" prefHeight="43.0" prefWidth="74.0"
+                      stylesheets="@../Css/MainStyle.css" text="Hi There! 👋">
+            <font>
+                <Font name="Cosmata Semi Bold" size="12.0"/>
+            </font>
+        </MFXTextField>
+        <Label layoutX="66.0" layoutY="248.0" text="18:30">
+            <font>
+                <Font name="Cosmata Extra Bold" size="12.0"/>
+            </font>
+        </Label>
+        <MFXTextField id="chatReplyField" alignment="CENTER_RIGHT" allowEdit="false" animated="false" editable="false"
+                      floatMode="DISABLED" layoutX="472.0" layoutY="263.0" prefHeight="43.0" prefWidth="307.0"
+                      stylesheets="@../Css/MainStyle.css" text="Hi !, I want to book my holiday trip">
+            <font>
+                <Font name="Cosmata Semi Bold" size="12.0"/>
+            </font>
+        </MFXTextField>
+        <Circle fx:id="profileImage1" fill="DODGERBLUE" layoutX="80.0" layoutY="351.0" radius="37.0" stroke="BLACK"
+                strokeType="INSIDE" strokeWidth="0.0"/>
+        <Label layoutX="66.0" layoutY="395.0" text="18:31">
+            <font>
+                <Font name="Cosmata Extra Bold" size="12.0"/>
+            </font>
+        </Label>
+        <MFXTextField id="chatField" allowEdit="false" animated="false" borderGap="0.0" editable="false"
+                      floatMode="DISABLED" graphicTextGap="0.0" layoutX="130.0" layoutY="330.0" measureUnitGap="0.0"
+                      prefHeight="43.0" prefWidth="45.0" style="-fx-min-width: 90;" stylesheets="@../Css/MainStyle.css"
+                      text="Sure ! 👍" textLimit="0">
+            <font>
+                <Font name="Cosmata Semi Bold" size="12.0"/>
+            </font>
+        </MFXTextField>
+        <MFXTextField id="chatReplyField" alignment="CENTER" allowEdit="false" animated="false" floatMode="DISABLED"
+                      layoutX="73.0" layoutY="496.0" prefHeight="43.0" prefWidth="192.0"
+                      stylesheets="@../Css/MainStyle.css" text="Thank you so much!">
+            <font>
+                <Font name="Cosmata Semi Bold" size="12.0"/>
+            </font>
+        </MFXTextField>
+        <MFXTextField id="chatReplyField" alignment="CENTER" allowEdit="false" animated="false" borderGap="0.0"
+                      editable="false" floatMode="DISABLED" graphicTextGap="0.0" layoutX="279.0" layoutY="496.0"
+                      measureUnitGap="0.0" prefHeight="43.0" prefWidth="45.0" style="-fx-min-width: 90;"
+                      stylesheets="@../Css/MainStyle.css" text="Sure ! 👍" textLimit="0">
+            <font>
+                <Font name="Cosmata Semi Bold" size="12.0"/>
+            </font>
+        </MFXTextField>
+        <HBox alignment="CENTER" layoutX="33.0" layoutY="565.0" prefHeight="60.0" prefWidth="745.0" spacing="10.0">
+            <children>
+                <MFXIconWrapper fx:id="plusIcon"/>
+                <MFXTextField id="searchField" fx:id="searchField1" floatMode="DISABLED" prefHeight="60.0"
+                              prefWidth="710.0">
+                    <font>
+                        <Font name="Consolas" size="18.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </MFXTextField>
+                <MFXIconWrapper fx:id="sendIcon"/>
+            </children>
+            <padding>
+                <Insets left="20.0"/>
+            </padding>
+        </HBox>
+    </children>
+</Pane>

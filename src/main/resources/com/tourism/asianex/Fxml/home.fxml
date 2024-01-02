@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import io.github.palexdev.mfxresources.fonts.MFXFontIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.*?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="rootPane" prefHeight="720.0" prefWidth="1080.0"
+           stylesheets="@../Css/MainStyle.css" xmlns="http://javafx.com/javafx/21"
+           fx:controller="com.tourism.asianex.Controllers.HomeController">
+    <children>
+        <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="bg-round">
+            <children>
+                <VBox prefHeight="720.0" prefWidth="264.0"
+                      style="-fx-background-color: #2296f2; -fx-background-radius: 30;">
+                    <children>
+                        <AnchorPane prefHeight="720.0" prefWidth="264.0">
+                            <children>
+                                <Pane layoutX="23.0" layoutY="40.0" prefHeight="70.0" prefWidth="215.0"
+                                      styleClass="round-pane">
+                                    <children>
+                                        <Label alignment="CENTER" layoutX="-21.0" layoutY="-15.0" prefHeight="98.0"
+                                               prefWidth="258.0"
+                                               style="-fx-text-fill: linear-gradient(from 25% 25% to 100% 100%, #dc143c, #32cd32);;"
+                                               text="ASIANEX">
+                                            <font>
+                                                <Font name="Cosmata Extra Bold" size="30.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <MFXButton alignment="CENTER" layoutY="148.0" onAction="#handleExploreButton"
+                                           prefHeight="60.0" prefWidth="265.0" rippleColor="#dfdbdb"
+                                           style="-fx-background-color: #2296f2;" text="Explore" textFill="WHITE">
+                                    <font>
+                                        <Font name="Cosmata Extra Bold" size="25.0"/>
+                                    </font>
+                                </MFXButton>
+                                <MFXButton alignment="CENTER" layoutY="210.0" onAction="#handleSavedButton"
+                                           prefHeight="60.0" prefWidth="265.0" rippleColor="#dfdbdb"
+                                           style="-fx-background-color: #2296f2;" text="Saved" textFill="WHITE">
+                                    <font>
+                                        <Font name="Cosmata Extra Bold" size="25.0"/>
+                                    </font>
+                                </MFXButton>
+                                <MFXButton alignment="CENTER" layoutY="272.0" onAction="#handleChatButton"
+                                           prefHeight="60.0" prefWidth="265.0" rippleColor="#dfdbdb"
+                                           style="-fx-background-color: #2296f2;" text="Chat" textFill="WHITE">
+                                    <font>
+                                        <Font name="Cosmata Extra Bold" size="25.0"/>
+                                    </font>
+                                </MFXButton>
+                                <MFXButton alignment="CENTER" layoutY="334.0" onAction="#handleProfileButton"
+                                           prefHeight="60.0" prefWidth="265.0" rippleColor="#dfdbdb"
+                                           style="-fx-background-color: #2296f2;" text="Profile" textFill="WHITE">
+                                    <font>
+                                        <Font name="Cosmata Extra Bold" size="25.0"/>
+                                    </font>
+                                </MFXButton>
+                                <MFXButton alignment="CENTER" layoutY="396.0" onAction="#handleSettingsButton"
+                                           prefHeight="60.0" prefWidth="265.0" rippleColor="#dfdbdb"
+                                           style="-fx-background-color: #2296f2;" text="Settings" textFill="WHITE">
+                                    <font>
+                                        <Font name="Cosmata Extra Bold" size="25.0"/>
+                                    </font>
+                                </MFXButton>
+                                <Label fx:id="userName" layoutX="154.0" layoutY="605.0" prefHeight="45.0"
+                                       prefWidth="98.0" text="User" textFill="WHITE">
+                                    <font>
+                                        <Font name="Cosmata Semi Bold" size="28.0"/>
+                                    </font>
+                                </Label>
+                                <Label layoutX="155.0" layoutY="643.0" prefHeight="34.0" prefWidth="97.0" text="User"
+                                       textFill="#e0e0e0">
+                                    <font>
+                                        <Font name="Cosmata Regular" size="18.0"/>
+                                    </font>
+                                </Label>
+                                <Circle fx:id="profileImage" fill="DODGERBLUE" layoutX="97.0" layoutY="644.0"
+                                        radius="50.0" stroke="TRANSPARENT" strokeType="INSIDE"/>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </VBox>
+                <HBox fx:id="windowHeader" alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="1080.0" spacing="10.0">
+                    <padding>
+                        <Insets right="20.0"/>
+                    </padding>
+                    <children>
+                        <MFXFontIcon fx:id="alwaysOnTopIcon" description="fas-circle" size="15.0"
+                                     styleClass="always-on-top-icon"/>
+                        <MFXFontIcon fx:id="minimizeIcon" description="fas-circle" size="15.0"
+                                     styleClass="minimize-icon"/>
+                        <MFXFontIcon fx:id="closeIcon" description="fas-circle" size="15.0" styleClass="close-icon"/>
+                    </children>
+                </HBox>
+                <StackPane fx:id="contentPane" layoutX="266.0" layoutY="53.0" prefHeight="664.0" prefWidth="813.0"/>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

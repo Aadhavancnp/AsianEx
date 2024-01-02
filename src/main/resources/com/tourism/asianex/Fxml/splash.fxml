@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="rootPane" xmlns="http://javafx.com/javafx/21"
+           fx:controller="com.tourism.asianex.Controllers.SplashController">
+    <children>
+        <BorderPane fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                    minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="bg-round"
+                    stylesheets="@../Css/MainStyle.css">
+            <center>
+                <ImageView fitHeight="750.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true"
+                           BorderPane.alignment="CENTER">
+                    <image>
+                        <Image url="@../Images/logo.png"/>
+                    </image>
+                </ImageView>
+            </center>
+        </BorderPane>
+    </children>
+</StackPane>

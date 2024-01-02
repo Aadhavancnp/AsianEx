@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'Cosmata BoldItalic';
+    src: url('Cosmata-BoldItalic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Cosmata Bold';
+    src: url('Cosmata-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Cosmata ExtraBold';
+    src: url('Cosmata-ExtraBold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Cosmata Regular';
+    src: url('Cosmata-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Cosmata MediumItalic';
+    src: url('Cosmata-MediumItalic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Cosmata Medium';
+    src: url('Cosmata-Medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Cosmata ExtraBoldItalic';
+    src: url('Cosmata-ExtraBoldItalic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Cosmata SemiBoldItalic';
+    src: url('Cosmata-SemiBoldItalic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Cosmata RegularItalic';
+    src: url('Cosmata-RegularItalic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Cosmata SemiBold';
+    src: url('Cosmata-SemiBold.otf') format('opentype');
+}
+
+.root {
+    -fx-font-family: 'Cosmata Regular';
+}
+
+.bold {
+    -fx-font-family: 'Cosmata Bold';
+    -fx-font-weight: bold;
+}
+
+.bold-italic {
+    -fx-font-family: 'Cosmata BoldItalic';
+    -fx-font-weight: bold;
+    -fx-font-style: italic;
+}
+
+.extra-bold {
+    -fx-font-family: 'Cosmata ExtraBold';
+    -fx-font-weight: 800;
+}
+
+.medium {
+    -fx-font-family: 'Cosmata Medium';
+    -fx-font-weight: 500;
+}
+
+.medium-italic {
+    -fx-font-family: 'Cosmata MediumItalic';
+    -fx-font-weight: 500;
+    -fx-font-style: italic;
+}
+
+.extra-bold-italic {
+    -fx-font-family: 'Cosmata ExtraBoldItalic';
+    -fx-font-weight: 800;
+    -fx-font-style: italic;
+}
+
+.semi-bold {
+    -fx-font-family: 'Cosmata SemiBold';
+    -fx-font-weight: 600;
+}
+
+.semi-bold-italic {
+    -fx-font-family: 'Cosmata SemiBoldItalic';
+    -fx-font-weight: 600;
+    -fx-font-style: italic;
+}
+
+.regular-italic {
+    -fx-font-family: 'Cosmata RegularItalic';
+    -fx-font-style: italic;
+}

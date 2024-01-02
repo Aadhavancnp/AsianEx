@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPaginatedTableView?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.mfxresources.fonts.MFXFontIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<Pane xmlns:fx="http://javafx.com/fxml/1" styleClass="bg-round" stylesheets="@../Css/MainStyle.css"
+      xmlns="http://javafx.com/javafx/21" fx:controller="com.tourism.asianex.Controllers.VisitorsController">
+    <children>
+        <HBox layoutX="10.0" layoutY="96.0" prefHeight="495.0" prefWidth="785.0">
+            <children>
+                <MFXPaginatedTableView fx:id="visitorsTable" prefHeight="493.0" prefWidth="811.0" rowsPerPage="14"/>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" layoutY="9.0" prefHeight="74.0" prefWidth="804.0" spacing="10.0">
+            <children>
+                <MFXFontIcon description="fas-magnifying-glass" size="23.0" textAlignment="JUSTIFY">
+                    <HBox.margin>
+                        <Insets left="15.0"/>
+                    </HBox.margin>
+                </MFXFontIcon>
+                <MFXTextField id="searchField" fx:id="searchField" floatMode="DISABLED" prefHeight="43.0"
+                              prefWidth="305.0" promptText="Search User">
+                    <font>
+                        <Font name="Consolas" size="18.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </MFXTextField>
+                <MFXButton prefHeight="46.0" prefWidth="122.0" rippleColor="#d8d4d4"
+                           style="-fx-background-color: #00ff87;" text="Add" textFill="WHITE">
+                    <font>
+                        <Font name="Cosmata Extra Bold" size="21.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets left="300.0"/>
+                    </HBox.margin>
+                </MFXButton>
+            </children>
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+        </HBox>
+    </children>
+</Pane>

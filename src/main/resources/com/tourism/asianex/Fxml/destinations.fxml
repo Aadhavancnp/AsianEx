@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import io.github.palexdev.mfxresources.fonts.MFXFontIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" styleClass="bg-round" stylesheets="@../Css/MainStyle.css"
+            xmlns="http://javafx.com/javafx/21" fx:controller="com.tourism.asianex.Controllers.DestinationsController">
+    <children>
+        <HBox layoutX="5.0" layoutY="-1.0" spacing="15.0">
+            <children>
+                <AnchorPane prefHeight="610.0" prefWidth="250.0">
+                    <children>
+                        <MFXTextField fx:id="nameField" floatMode="ABOVE" floatingText="Name" layoutX="6.0"
+                                      layoutY="45.0" prefHeight="40.0" prefWidth="237.0" promptText="Enter City Name">
+                            <font>
+                                <Font name="Cosmata Extra Bold" size="27.0"/>
+                            </font>
+                        </MFXTextField>
+                        <MFXTextField fx:id="countryField" floatMode="ABOVE" floatingText="Country" layoutX="6.0"
+                                      layoutY="117.0" prefHeight="40.0" prefWidth="237.0"
+                                      promptText="Enter City Country">
+                            <font>
+                                <Font name="Cosmata Extra Bold" size="27.0"/>
+                            </font>
+                        </MFXTextField>
+                        <MFXTextField fx:id="descriptionField" floatMode="ABOVE" floatingText="Description"
+                                      layoutX="6.0" layoutY="189.0" prefHeight="40.0" prefWidth="237.0"
+                                      promptText="Enter City Description">
+                            <font>
+                                <Font name="Cosmata Extra Bold" size="27.0"/>
+                            </font>
+                        </MFXTextField>
+                        <MFXTextField fx:id="priceField" floatMode="ABOVE" floatingText="Price" layoutX="6.0"
+                                      layoutY="261.0" prefHeight="40.0" prefWidth="237.0" promptText="Enter Price">
+                            <font>
+                                <Font name="Cosmata Extra Bold" size="27.0"/>
+                            </font>
+                        </MFXTextField>
+                        <MFXTextField fx:id="noOfDaysField" floatMode="ABOVE" floatingText="No of Days" layoutX="6.0"
+                                      layoutY="333.0" prefHeight="40.0" prefWidth="237.0" promptText="Enter No of Days">
+                            <font>
+                                <Font name="Cosmata Extra Bold" size="27.0"/>
+                            </font>
+                        </MFXTextField>
+                        <MFXButton layoutX="7.0" layoutY="469.0" onAction="#addCity" prefHeight="46.0" prefWidth="115.0"
+                                   rippleColor="#d8d4d4" style="-fx-background-color: #00ff87;" text="Add"
+                                   textFill="WHITE">
+                            <font>
+                                <Font name="Cosmata Extra Bold" size="21.0"/>
+                            </font>
+                        </MFXButton>
+                        <MFXButton layoutX="127.0" layoutY="469.0" onAction="#updateCity" prefHeight="46.0"
+                                   prefWidth="115.0" rippleColor="#d8d4d4" style="-fx-background-color: #fff95b;"
+                                   text="Update" textFill="WHITE">
+                            <font>
+                                <Font name="Cosmata Extra Bold" size="21.0"/>
+                            </font>
+                        </MFXButton>
+                        <MFXButton layoutX="7.0" layoutY="530.0" onAction="#clearFields" prefHeight="45.0"
+                                   prefWidth="115.0" rippleColor="#d8d4d4" style="-fx-background-color: -primary-color;"
+                                   text="Clear" textFill="WHITE">
+                            <font>
+                                <Font name="Cosmata Extra Bold" size="21.0"/>
+                            </font>
+                        </MFXButton>
+                        <MFXButton layoutX="127.0" layoutY="530.0" onAction="#deleteCity" prefHeight="45.0"
+                                   prefWidth="115.0" rippleColor="#d8d4d4" style="-fx-background-color: red;"
+                                   text="Delete" textFill="WHITE">
+                            <font>
+                                <Font name="Cosmata Extra Bold" size="21.0"/>
+                            </font>
+                        </MFXButton>
+                        <MFXTextField fx:id="imageField" floatMode="ABOVE" floatingText="Image" layoutX="8.0"
+                                      layoutY="405.0" prefHeight="40.0" prefWidth="237.0"
+                                      promptText="Enter City Image Name">
+                            <font>
+                                <Font name="Cosmata Extra Bold" size="27.0"/>
+                            </font>
+                        </MFXTextField>
+                    </children>
+                    <styleClass>
+                        <String fx:value="bg-round"/>
+                        <String fx:value="shadow"/>
+                    </styleClass>
+                </AnchorPane>
+                <AnchorPane prefHeight="610.0" prefWidth="530.0">
+                    <styleClass>
+                        <String fx:value="bg-round"/>
+                        <String fx:value="shadow"/>
+                    </styleClass>
+                    <children>
+                        <MFXPaginatedTableView fx:id="destinationsTable" layoutX="5.0" layoutY="61.0"
+                                               prefHeight="525.0" prefWidth="520.0"
+                                               rowsPerPage="12"/>
+                        <HBox alignment="CENTER_LEFT" layoutY="-1.0" prefHeight="60.0" prefWidth="530.0" spacing="10.0">
+                            <children>
+                                <MFXFontIcon description="fas-magnifying-glass" size="23.0" textAlignment="JUSTIFY">
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                </MFXFontIcon>
+                                <MFXTextField id="searchField" fx:id="searchField" floatMode="DISABLED"
+                                              prefHeight="43.0" prefWidth="251.0" promptText="Search Places...">
+                                    <font>
+                                        <Font name="Consolas" size="18.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                </MFXTextField>
+                            </children>
+                            <padding>
+                                <Insets left="20.0"/>
+                            </padding>
+                        </HBox>
+                    </children>
+                </AnchorPane>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>
