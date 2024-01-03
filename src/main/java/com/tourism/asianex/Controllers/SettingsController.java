@@ -104,14 +104,13 @@ public class SettingsController implements Initializable {
             } else {
                 String themeMode = ((MFXRadioButton) newValue).getText().toLowerCase();
                 propertiesCache.setProperty("theme", themeMode);
-                // TODO: Implemnt dark mode
-                Scene scene = rootPane.getScene();
+                Scene scene = rootPane.getScene().getWindow().getScene();
                 if (themeMode.equalsIgnoreCase("dark")) {
-                    scene.getStylesheets().remove(ResourceLoader.getCss("MainStyle.css"));
-                    scene.getStylesheets().add(ResourceLoader.getCss("DarkMode.css"));
+                    scene.getStylesheets().add(ResourceLoader.getCss("darkMode.css"));
+                    scene.getStylesheets().remove(ResourceLoader.getCss("lightMode.css"));
                 } else {
-                    scene.getStylesheets().remove(ResourceLoader.getCss("DarkMode.css"));
-                    scene.getStylesheets().add(ResourceLoader.getCss("MainStyle.css"));
+                    scene.getStylesheets().add(ResourceLoader.getCss("lightMode.css"));
+                    scene.getStylesheets().remove(ResourceLoader.getCss("darkMode.css"));
                 }
             }
         });

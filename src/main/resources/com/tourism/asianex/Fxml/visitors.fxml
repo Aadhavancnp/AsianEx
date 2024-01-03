@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXPaginatedTableView?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
@@ -8,12 +7,13 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<Pane xmlns:fx="http://javafx.com/fxml/1" styleClass="bg-round" stylesheets="@../Css/MainStyle.css"
+<Pane xmlns:fx="http://javafx.com/fxml/1" styleClass="bg-round" stylesheets="@../Css/mainStyle.css"
       xmlns="http://javafx.com/javafx/21" fx:controller="com.tourism.asianex.Controllers.VisitorsController">
     <children>
         <HBox layoutX="10.0" layoutY="96.0" prefHeight="495.0" prefWidth="785.0">
             <children>
-                <MFXPaginatedTableView fx:id="visitorsTable" prefHeight="493.0" prefWidth="811.0" rowsPerPage="14"/>
+                <MFXPaginatedTableView fx:id="visitorsTable" prefHeight="493.0" prefWidth="811.0" rowsPerPage="14"
+                                       styleClass="bg-table"/>
             </children>
         </HBox>
         <HBox alignment="CENTER_LEFT" layoutY="9.0" prefHeight="74.0" prefWidth="804.0" spacing="10.0">

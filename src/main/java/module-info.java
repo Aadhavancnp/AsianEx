@@ -6,6 +6,7 @@ module com.realestate.rocknroll {
     requires org.mongodb.driver.reactivestreams;
     requires org.mongodb.bson;
     requires org.reactivestreams;
+    requires com.jthemedetector;
 
     requires javafx.controls;
     requires javafx.fxml;

@@ -8,7 +8,7 @@
 <Pane xmlns:fx="http://javafx.com/fxml/1" fx:id="paneBox" maxHeight="-Infinity" maxWidth="-Infinity"
       minHeight="-Infinity"
       minWidth="-Infinity" prefHeight="620.0" prefWidth="811.0" styleClass="bg-round"
-      stylesheets="@../Css/MainStyle.css" xmlns="http://javafx.com/javafx/21"
+      stylesheets="@../Css/mainStyle.css" xmlns="http://javafx.com/javafx/21"
       fx:controller="com.tourism.asianex.Controllers.SettingsController">
     <children>
         <Label layoutX="30.0" prefHeight="59.0" prefWidth="774.0" text="Settings">

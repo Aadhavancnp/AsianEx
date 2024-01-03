@@ -7,15 +7,14 @@
 <?import javafx.scene.text.Font?>
 <?import java.lang.String?>
 <HBox xmlns:fx="http://javafx.com/fxml/1" fx:id="imagePane" alignment="CENTER"
-      style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 20, 0, 0, 0);" stylesheets="@../Css/MainStyle.css"
+      style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 20, 0, 0, 0);" stylesheets="@../Css/mainStyle.css"
       xmlns="http://javafx.com/javafx/21"
       fx:controller="com.tourism.asianex.Controllers.CityController">
     <children>
         <Pane prefHeight="250.0" prefWidth="370.0">
             <children>
                 <ImageView fx:id="image" fitHeight="250.0" fitWidth="370.0" pickOnBounds="true" smooth="false"/>
-                <HBox layoutY="-1.0" prefHeight="251.0" prefWidth="370.0" styleClass="gradient"
-                      stylesheets="@../Css/MainStyle.css">
+                <HBox layoutY="-1.0" prefHeight="251.0" prefWidth="370.0" styleClass="gradient">
                     <children>
                         <VBox alignment="BOTTOM_CENTER" prefHeight="251.0" prefWidth="160.0">
                             <children>

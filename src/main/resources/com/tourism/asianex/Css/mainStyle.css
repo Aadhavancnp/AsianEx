@@ -6,6 +6,13 @@
     -font-family-semi-bold: "Cosmata Semi Bold";
 }
 
+.root {
+    -fx-background-radius: 30;
+}
+
+.bg-round {
+    -fx-background-radius: 30;
+}
 
 .root .close-icon {
     -mfx-color: red;
@@ -45,36 +52,20 @@
 }
 
 #passwordvalidatedField:invalid, #emailvalidatedField:invalid {
-    -fx-border-color: -mfx-red;
+    -fx-border-color: -mfx-red !important;
 }
 
 #emailvalidatedField:invalid {
-    -mfx-color: -mfx-red;
+    -mfx-color: -mfx-red !important;
 }
 
 #passwordvalidatedField:invalid .mfx-font-icon {
-    -mfx-color: -mfx-red;
+    -mfx-color: -mfx-red !important;
 }
 
 #emailvalidationLabel, #passwordvalidationLabel {
     -fx-font-family: -font-family-semi-bold;
     -fx-font-size: 12;
-}
-
-#rememberMe {
-    -mfx-main: -primary-color;
-    -mfx-gray: #8f8f8fc2;
-    -fx-text-fill: #8f8f8fc2;
-}
-
-#rememberMe .mfx-ripple-generator {
-    -mfx-ripple-color: -primary-color;
-    -fx-opacity: 0.4;
-}
-
-.bg-round {
-    -fx-background-color: #fff;
-    -fx-background-radius: 30;
 }
 
 .round-pane {
@@ -97,6 +88,14 @@
 .shadow {
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 10);
 }
+
+#chatField, #chatReplyField {
+    -fx-background-radius: 20 !important;
+    -fx-border-radius: 20;
+    -fx-border-width: 2;
+    -fx-border-style: solid;
+}
+
 
 .year-month-view > .container > .header > .month-header > .month-label, .year-month-view > .container > .header > .year-header > .year-label, .chart-title {
     -fx-text-fill: #fff !important;
@@ -151,25 +150,6 @@
 .chart-bar {
     -fx-background-color: -primary-color !important;
     -fx-background-radius: 0 15 15 0 !important;
-}
-
-#chatField {
-    -fx-background-color: #fff !important;
-    -fx-background-radius: 20 !important;
-    -fx-border-radius: 20;
-    -fx-border-color: -primary-color;
-    -fx-border-width: 2;
-    -fx-border-style: solid;
-}
-
-#chatReplyField {
-    -fx-text-fill: #fff !important;
-    -fx-background-color: -primary-color !important;
-    -fx-background-radius: 20 !important;
-    -fx-border-radius: 20;
-    -fx-border-color: -primary-color;
-    -fx-border-width: 2;
-    -fx-border-style: solid;
 }
 
 .mfx-pagination .mfx-page:selected {

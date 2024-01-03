@@ -22,6 +22,7 @@ import org.bson.Document;
 import java.net.URL;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.mongodb.client.model.Filters.eq;
@@ -136,8 +137,8 @@ public class DestinationsController implements Initializable {
         String name = nameField.getText();
         String country = countryField.getText();
         String description = descriptionField.getText();
-        int price = Integer.parseInt(priceField.getText());
-        int noOfDays = Integer.parseInt(noOfDaysField.getText());
+        int price = Integer.parseInt(Objects.equals(priceField.getText(), "") ? "0" : priceField.getText());
+        int noOfDays = Integer.parseInt(Objects.equals(noOfDaysField.getText(), "") ? "0" : noOfDaysField.getText());
         String image = imageField.getText();
         if (name.isEmpty() || country.isEmpty() || description.isEmpty() || image.isEmpty()) {
             errorBox("Please fill all the fields", "Error", "Error");
