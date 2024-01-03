@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<Pane xmlns:fx="http://javafx.com/fxml/1" styleClass="bg-round" stylesheets="@../Css/MainStyle.css"
+<Pane xmlns:fx="http://javafx.com/fxml/1" styleClass="bg-round" stylesheets="@../Css/mainStyle.css"
       xmlns="http://javafx.com/javafx/21" fx:controller="com.tourism.asianex.Controllers.SavedController">
     <children>
         <Label layoutX="31.0" prefHeight="68.0" prefWidth="770.0" text="Saved">
@@ -14,7 +14,8 @@
                 <Font name="Cosmata Extra Bold" size="54.0"/>
             </font>
         </Label>
-        <MFXScrollPane fx:id="scrollPane" fitToWidth="true" layoutY="65.0" prefHeight="527.0" prefWidth="811.0">
+        <MFXScrollPane fx:id="scrollPane" fitToWidth="true" layoutY="65.0" prefHeight="527.0" prefWidth="811.0"
+                       styleClass="bg-scrollpane">
             <content>
                 <GridPane fx:id="savedCitiesGrid" prefWidth="200.0">
                     <columnConstraints>

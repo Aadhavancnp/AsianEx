@@ -44,7 +44,7 @@ public class PropertiesCache {
 
     public void flush() {
         try (final OutputStream outputstream
-                     = new FileOutputStream("application.properties")) {
+                     = new FileOutputStream("target/classes/com/tourism/asianex/application.properties")) {
             configProp.store(outputstream, "File Updated");
         } catch (IOException e) {
             LOGGER.severe("Error while flushing properties to the file" + e.getMessage());

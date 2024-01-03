@@ -1,0 +1,38 @@
+.root {
+    -fx-background-color: #fff;
+}
+
+.bg-round {
+    -fx-background-color: #fff;
+}
+
+#rememberMe {
+    -mfx-main: -primary-color;
+    -mfx-gray: #8f8f8fc2;
+    -fx-text-fill: #8f8f8fc2;
+}
+
+#rememberMe .mfx-ripple-generator {
+    -mfx-ripple-color: -primary-color;
+    -fx-opacity: 0.4;
+}
+
+.bg-scrollpane {
+    -fx-background-color: #fff !important;
+}
+
+#chatField {
+    -fx-background-color: #fff !important;
+    -fx-border-color: -primary-color;
+}
+
+#chatReplyField {
+    -fx-text-fill: #fff !important;
+    -fx-background-color: -primary-color !important;
+    -fx-border-color: -primary-color;
+}
+
+.bg-table {
+    -fx-background-color: #fff !important;
+    -fx-text-fill: #000 !important;
+}

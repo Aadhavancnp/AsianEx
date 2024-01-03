@@ -5,7 +5,7 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<Pane xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../Css/MainStyle.css" xmlns="http://javafx.com/javafx/21"
+<Pane xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../Css/mainStyle.css" xmlns="http://javafx.com/javafx/21"
       fx:controller="com.tourism.asianex.Controllers.ExploreController">
     <children>
         <HBox>
@@ -50,7 +50,8 @@
                 </HBox>
             </children>
         </HBox>
-        <MFXScrollPane fx:id="scrollPane" fitToWidth="true" layoutY="65.0" prefHeight="527.0" prefWidth="811.0">
+        <MFXScrollPane fx:id="scrollPane" fitToWidth="true" layoutY="65.0" prefHeight="527.0" prefWidth="811.0"
+                       styleClass="bg-scrollpane">
             <content>
                 <GridPane fx:id="citiesGrid" prefWidth="200.0">
                     <columnConstraints>

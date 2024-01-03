@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.String?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" styleClass="bg-round" stylesheets="@../Css/MainStyle.css"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" styleClass="bg-round" stylesheets="@../Css/mainStyle.css"
             xmlns="http://javafx.com/javafx/21" fx:controller="com.tourism.asianex.Controllers.DestinationsController">
     <children>
         <HBox layoutX="5.0" layoutY="-1.0" spacing="15.0">
@@ -92,9 +92,8 @@
                         <String fx:value="shadow"/>
                     </styleClass>
                     <children>
-                        <MFXPaginatedTableView fx:id="destinationsTable" layoutX="5.0" layoutY="61.0"
-                                               prefHeight="525.0" prefWidth="520.0"
-                                               rowsPerPage="12"/>
+                        <MFXPaginatedTableView fx:id="destinationsTable" layoutX="5.0" layoutY="61.0" prefHeight="525.0"
+                                               prefWidth="520.0" rowsPerPage="12" styleClass="bg-table"/>
                         <HBox alignment="CENTER_LEFT" layoutY="-1.0" prefHeight="60.0" prefWidth="530.0" spacing="10.0">
                             <children>
                                 <MFXFontIcon description="fas-magnifying-glass" size="23.0" textAlignment="JUSTIFY">

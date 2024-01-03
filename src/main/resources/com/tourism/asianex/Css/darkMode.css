@@ -1,0 +1,93 @@
+.root {
+    -fx-background-color: #2D2D30;
+}
+
+.bg-round {
+    -fx-background-color: #2D2D30;
+}
+
+.label {
+    -fx-text-fill: #fff;
+}
+
+#rememberMe {
+    -mfx-main: #2296f2;
+    -mfx-gray: #fff;
+    -fx-text-fill: #fff;
+}
+
+#rememberMe .mfx-ripple-generator {
+    -mfx-ripple-color: #fff;
+    -fx-opacity: 0.4;
+}
+
+.mfx-password-field .mfx-icon-wrapper .mfx-font-icon {
+    -mfx-color: #000;
+}
+
+.mfx-font-icon {
+    -mfx-color: #fff;
+}
+
+.mfx-icon-wrapper .mfx-ripple-generator {
+    -mfx-ripple-color: #F3F1F6;
+}
+
+.bg-scrollpane {
+    -fx-background-color: #2D2D30 !important;
+}
+
+#chatField {
+    -fx-background-color: #fff !important;
+    -fx-border-color: #ffffff;
+}
+
+#chatReplyField {
+    -fx-text-fill: #fff !important;
+    -fx-background-color: -primary-color !important;
+    -fx-border-color: -primary-color;
+}
+
+.mfx-text-field .floating-text {
+    -fx-background-color: transparent !important;
+    -fx-text-fill: #fff !important;
+}
+
+.mfx-radio-button {
+    -fx-text-fill: #fff !important;
+}
+
+.mfx-date-picker .mfx-icon-wrapper .mfx-font-icon {
+    -mfx-color: #000;
+}
+
+.mfx-date-picker .date-picker-popup .content {
+    -fx-text-fill: #000 !important;
+}
+
+.bg-table {
+    -fx-background-color: #2D2D30 !important;
+    -fx-text-fill: #fff !important;
+}
+
+.mfx-table-row {
+    -fx-text-fill: #fff !important;
+}
+
+.mfx-table-row-cell {
+    -fx-text-fill: #fff !important;
+}
+
+.mfx-table-column {
+    -fx-text-fill: #fff !important;
+}
+
+.mfx-table-row:selected {
+    -fx-text-fill: #000 !important;
+    -fx-background-color: -primary-color !important;
+}
+
+.mfx-table-row:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.23) !important;
+}
+

@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.*?>
 <StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="rootPane" prefHeight="720.0" prefWidth="1080.0"
-           stylesheets="@../Css/MainStyle.css" xmlns="http://javafx.com/javafx/21"
+           stylesheets="@../Css/mainStyle.css" xmlns="http://javafx.com/javafx/21"
            fx:controller="com.tourism.asianex.Controllers.HomeController">
     <children>
         <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="bg-round">

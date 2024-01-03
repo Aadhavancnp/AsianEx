@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.*?>
-<Pane xmlns:fx="http://javafx.com/fxml/1" styleClass="bg-round" stylesheets="@../Css/MainStyle.css"
+<Pane xmlns:fx="http://javafx.com/fxml/1" styleClass="bg-round" stylesheets="@../Css/mainStyle.css"
       xmlns="http://javafx.com/javafx/21" fx:controller="com.tourism.asianex.Controllers.DashboardController">
     <children>
         <HBox prefHeight="233.0" prefWidth="811.0" spacing="10.0">
