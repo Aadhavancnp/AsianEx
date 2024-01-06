@@ -45,7 +45,7 @@ public class MainApplication extends Application {
                 .build()
                 .setGlobal();
         ResourceLoader.loadFonts();
-        FXMLLoader fxmlLoader = new FXMLLoader(ResourceLoader.getFxml("admin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ResourceLoader.getFxml("splash.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1080, 720, Color.TRANSPARENT);
         scene.getStylesheets().add(ResourceLoader.getCss("mainStyle.css"));
         setThemeListener(scene);
