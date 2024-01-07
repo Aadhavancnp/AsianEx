@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Collection;
 import java.util.Properties;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -57,7 +58,12 @@ public class PropertiesCache {
     }
 
     public void clear() {
-        configProp.clear();
+        Collection<String> keys = getAllPropertyNames();
+        for (String key : keys) {
+            if (!key.equals("mongodb.uri")) {
+                configProp.remove(key);
+            }
+        }
         flush();
     }
 

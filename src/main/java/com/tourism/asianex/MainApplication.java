@@ -1,6 +1,7 @@
 package com.tourism.asianex;
 
 import com.jthemedetecor.OsThemeDetector;
+import com.tourism.asianex.Services.MongoService;
 import io.github.palexdev.materialfx.theming.JavaFXThemes;
 import io.github.palexdev.materialfx.theming.MaterialFXStylesheets;
 import io.github.palexdev.materialfx.theming.UserAgentBuilder;
@@ -70,6 +71,7 @@ public class MainApplication extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
+        MongoService.closeMongoClient();
         PropertiesCache.getInstance().clear();
         System.exit(0);
     }
