@@ -1,6 +1,7 @@
 package com.tourism.asianex;
 
 import com.jthemedetecor.OsThemeDetector;
+import com.tourism.asianex.Services.MongoService;
 import io.github.palexdev.materialfx.theming.JavaFXThemes;
 import io.github.palexdev.materialfx.theming.MaterialFXStylesheets;
 import io.github.palexdev.materialfx.theming.UserAgentBuilder;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.util.function.Consumer;
 
 public class MainApplication extends Application {
+    // TODO ADD MONGODB URL IN APPLICATION.PROPERTIES FILE IN RESOURCES FOLDER
 
     private static void setThemeListener(Scene scene) {
         final OsThemeDetector detector = OsThemeDetector.getDetector();
@@ -69,6 +71,7 @@ public class MainApplication extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
+        MongoService.closeMongoClient();
         PropertiesCache.getInstance().clear();
         System.exit(0);
     }

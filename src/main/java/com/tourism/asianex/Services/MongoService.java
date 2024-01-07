@@ -17,6 +17,8 @@ import java.util.logging.Logger;
 
 public class MongoService {
     private static final Logger LOGGER = Logger.getLogger(MongoService.class.getName());
+
+    private static final ConnectionString connectionString = new ConnectionString(PropertiesCache.getInstance().getProperty("mongodb.uri"));
     private static volatile MongoClient mongoClient;
 
     private MongoService() {
@@ -26,8 +28,6 @@ public class MongoService {
         if (mongoClient == null) {
             synchronized (MongoService.class) {
                 if (mongoClient == null) {
-                    String connStr = PropertiesCache.getInstance().getProperty("mongodb.uri");
-                    ConnectionString connectionString = new ConnectionString(connStr);
                     CodecRegistry codecRegistry = CodecRegistries.fromRegistries(
                             CodecRegistries.fromCodecs(new UuidCodec(UuidRepresentation.STANDARD)),
                             MongoClientSettings.getDefaultCodecRegistry()
@@ -45,7 +45,7 @@ public class MongoService {
     }
 
     public static MongoDatabase getDatabase() {
-        String databaseName = new ConnectionString(PropertiesCache.getInstance().getProperty("mongodb.uri")).getDatabase();
+        String databaseName = connectionString.getDatabase();
         if (databaseName == null) {
             throw new IllegalStateException("Database name cannot be null");
         }
