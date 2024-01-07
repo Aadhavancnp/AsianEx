@@ -9,11 +9,8 @@ import com.tourism.asianex.Utils.SubscriberHelpers.ObservableSubscriber;
 import com.tourism.asianex.Utils.SubscriberHelpers.OperationSubscriber;
 import io.github.palexdev.materialfx.controls.MFXPasswordField;
 import io.github.palexdev.materialfx.controls.MFXTextField;
-import io.github.palexdev.materialfx.validation.Constraint;
-import io.github.palexdev.materialfx.validation.Severity;
 import io.github.palexdev.mfxresources.fonts.MFXFontIcon;
 import javafx.animation.*;
-import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -30,16 +27,13 @@ import org.bson.Document;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
 import static com.tourism.asianex.Services.UtilService.errorBox;
-import static com.tourism.asianex.Services.UtilService.isValidEmail;
 import static com.tourism.asianex.Utils.Common.*;
-import static io.github.palexdev.materialfx.utils.StringUtils.containsAny;
 
 
 public class LoginController implements Initializable {
@@ -105,98 +99,10 @@ public class LoginController implements Initializable {
         clip.setArcHeight(20);
         loginPane.setClip(clip);
 
-        setFieldValidation();
+        setFieldValidation(emailField, emailvalidationLabel, passwordField, passwordvalidationLabel);
 
     }
 
-    private void setFieldValidation() {
-        Constraint emailConstraint = Constraint.Builder.build()
-                .setSeverity(Severity.ERROR)
-                .setMessage("Email is not valid")
-                .setCondition(Bindings.createBooleanBinding(
-                        () -> isValidEmail(emailField.getText()),
-                        emailField.textProperty()
-                ))
-                .get();
-
-        emailField.getValidator().constraint(emailConstraint);
-
-        emailField.getValidator().validProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                emailvalidationLabel.setVisible(false);
-                emailField.pseudoClassStateChanged(INVALID_PSEUDO_CLASS, false);
-            }
-        });
-
-        emailField.delegateFocusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (oldValue && !newValue) {
-                List<Constraint> constraints = emailField.validate();
-                if (!constraints.isEmpty()) {
-                    emailField.pseudoClassStateChanged(INVALID_PSEUDO_CLASS, true);
-                    emailvalidationLabel.setText(constraints.getFirst().getMessage());
-                    emailvalidationLabel.setVisible(true);
-                }
-            }
-        });
-
-        Constraint lengthConstraint = Constraint.Builder.build()
-                .setSeverity(Severity.ERROR)
-                .setMessage("Password must be at least 8 characters long")
-                .setCondition(passwordField.textProperty().length().greaterThanOrEqualTo(8))
-                .get();
-
-        Constraint digitConstraint = Constraint.Builder.build()
-                .setSeverity(Severity.ERROR)
-                .setMessage("Password must contain at least one digit")
-                .setCondition(Bindings.createBooleanBinding(
-                        () -> containsAny(passwordField.getText(), "", digits),
-                        passwordField.textProperty()
-                ))
-                .get();
-
-        Constraint charactersConstraint = Constraint.Builder.build()
-                .setSeverity(Severity.ERROR)
-                .setMessage("Password must contain at least one lowercase and one uppercase characters")
-                .setCondition(Bindings.createBooleanBinding(
-                        () -> containsAny(passwordField.getText(), "", upperChar) && containsAny(passwordField.getText(), "", lowerChar),
-                        passwordField.textProperty()
-                ))
-                .get();
-
-        Constraint specialCharactersConstraint = Constraint.Builder.build()
-                .setSeverity(Severity.ERROR)
-                .setMessage("Password must contain at least one special character")
-                .setCondition(Bindings.createBooleanBinding(
-                        () -> containsAny(passwordField.getText(), "", specialCharacters),
-                        passwordField.textProperty()
-                ))
-                .get();
-
-        passwordField.getValidator()
-                .constraint(digitConstraint)
-                .constraint(charactersConstraint)
-                .constraint(specialCharactersConstraint)
-                .constraint(lengthConstraint);
-
-        passwordField.getValidator().validProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                passwordvalidationLabel.setVisible(false);
-                passwordField.pseudoClassStateChanged(INVALID_PSEUDO_CLASS, false);
-            }
-        });
-
-        passwordField.delegateFocusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (oldValue && !newValue) {
-                List<Constraint> constraints = passwordField.validate();
-                if (!constraints.isEmpty()) {
-                    passwordField.pseudoClassStateChanged(INVALID_PSEUDO_CLASS, true);
-                    passwordvalidationLabel.setText(constraints.getFirst().getMessage());
-                    passwordvalidationLabel.setVisible(true);
-                }
-            }
-        });
-
-    }
 
     @FXML
     private void register() throws IOException {
@@ -238,7 +144,7 @@ public class LoginController implements Initializable {
 
     private void setAdminPage() {
         try {
-            setNextPage("admin.fxml");
+            setNextPage(ADMIN);
             LOGGER.info("Admin Logged in Successfully");
         } catch (IOException e) {
             LOGGER.severe("Error loading fxml file: " + e.getMessage());
@@ -247,7 +153,7 @@ public class LoginController implements Initializable {
 
     private void setUserPage() {
         try {
-            setNextPage("home.fxml");
+            setNextPage(HOME);
             LOGGER.info("User Logged in Successfully");
         } catch (IOException e) {
             LOGGER.severe("Error loading fxml file: " + e.getMessage());

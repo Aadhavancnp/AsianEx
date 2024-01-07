@@ -5,13 +5,14 @@ import io.github.palexdev.materialfx.controls.MFXIconWrapper;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Region;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
+
+import static com.tourism.asianex.Utils.Common.makeRegionCircular;
 
 public class ChatController implements Initializable {
     private static final Logger LOGGER = Logger.getLogger(ChatController.class.getName());
@@ -30,17 +31,6 @@ public class ChatController implements Initializable {
     @FXML
     private Circle profileImage1;
 
-    private static void makeRegionCircular(Region region) {
-        Circle circle = new Circle();
-        circle.radiusProperty().bind(region.widthProperty().divide(2.0));
-        circle.centerXProperty().bind(region.widthProperty().divide(2.0));
-        circle.centerYProperty().bind(region.heightProperty().divide(2.0));
-        try {
-            region.setClip(circle);
-        } catch (IllegalArgumentException ex) {
-            throw new IllegalArgumentException("Could not set region's clip to make it circular", ex);
-        }
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

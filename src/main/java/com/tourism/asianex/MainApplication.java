@@ -19,7 +19,6 @@ import java.util.function.Consumer;
 
 public class MainApplication extends Application {
     // TODO ADD MONGODB URL IN APPLICATION.PROPERTIES FILE IN RESOURCES FOLDER
-
     private static void setThemeListener(Scene scene) {
         final OsThemeDetector detector = OsThemeDetector.getDetector();
         PropertiesCache cache = PropertiesCache.getInstance();

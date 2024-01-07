@@ -31,7 +31,7 @@ public class ImageLoaderService {
         if (image == null) {
             Task<Image> imageTask = new Task<>() {
                 @Override
-                protected Image call() throws Exception {
+                protected Image call() {
                     Image loadedImage = new Image(imageUrl, true);
                     imageCache.putIfAbsent(imageUrl, loadedImage);
                     return loadedImage;

@@ -36,9 +36,7 @@ import java.util.logging.Logger;
 
 import static com.mongodb.client.model.Filters.eq;
 import static com.tourism.asianex.Services.UtilService.errorBox;
-import static com.tourism.asianex.Services.UtilService.isValidEmail;
 import static com.tourism.asianex.Utils.Common.*;
-import static io.github.palexdev.materialfx.utils.StringUtils.containsAny;
 
 public class RegisterController implements Initializable {
     private static final Logger LOGGER = Logger.getLogger(RegisterController.class.getName());
@@ -108,97 +106,12 @@ public class RegisterController implements Initializable {
         clip.setArcHeight(20);
         registerPane.setClip(clip);
 
-        setFieldValidation();
+        setFieldValidationWithConfirmPassword();
 
     }
 
-    private void setFieldValidation() {
-        Constraint emailConstraint = Constraint.Builder.build()
-                .setSeverity(Severity.ERROR)
-                .setMessage("Email is not valid")
-                .setCondition(Bindings.createBooleanBinding(
-                        () -> isValidEmail(emailField.getText()),
-                        emailField.textProperty()
-                ))
-                .get();
-
-        emailField.getValidator().constraint(emailConstraint);
-
-
-        emailField.getValidator().validProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                emailvalidationLabel.setVisible(false);
-                emailField.pseudoClassStateChanged(INVALID_PSEUDO_CLASS, false);
-            }
-        });
-
-        emailField.delegateFocusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (oldValue && !newValue) {
-                List<Constraint> constraints = emailField.validate();
-                if (!constraints.isEmpty()) {
-                    emailField.pseudoClassStateChanged(INVALID_PSEUDO_CLASS, true);
-                    emailvalidationLabel.setText(constraints.getFirst().getMessage());
-                    emailvalidationLabel.setVisible(true);
-                }
-            }
-        });
-
-        Constraint lengthConstraint = Constraint.Builder.build()
-                .setSeverity(Severity.ERROR)
-                .setMessage("Password must be at least 8 characters long")
-                .setCondition(passwordField.textProperty().length().greaterThanOrEqualTo(8))
-                .get();
-
-        Constraint digitConstraint = Constraint.Builder.build()
-                .setSeverity(Severity.ERROR)
-                .setMessage("Password must contain at least one digit")
-                .setCondition(Bindings.createBooleanBinding(
-                        () -> containsAny(passwordField.getText(), "", digits),
-                        passwordField.textProperty()
-                ))
-                .get();
-
-        Constraint charactersConstraint = Constraint.Builder.build()
-                .setSeverity(Severity.ERROR)
-                .setMessage("Password must contain at least one lowercase and one uppercase characters")
-                .setCondition(Bindings.createBooleanBinding(
-                        () -> containsAny(passwordField.getText(), "", upperChar) && containsAny(passwordField.getText(), "", lowerChar),
-                        passwordField.textProperty()
-                ))
-                .get();
-
-        Constraint specialCharactersConstraint = Constraint.Builder.build()
-                .setSeverity(Severity.ERROR)
-                .setMessage("Password must contain at least one special character")
-                .setCondition(Bindings.createBooleanBinding(
-                        () -> containsAny(passwordField.getText(), "", specialCharacters),
-                        passwordField.textProperty()
-                ))
-                .get();
-
-        passwordField.getValidator()
-                .constraint(digitConstraint)
-                .constraint(charactersConstraint)
-                .constraint(specialCharactersConstraint)
-                .constraint(lengthConstraint);
-
-        passwordField.getValidator().validProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                passwordvalidationLabel.setVisible(false);
-                passwordField.pseudoClassStateChanged(INVALID_PSEUDO_CLASS, false);
-            }
-        });
-
-        passwordField.delegateFocusedProperty().addListener((observable, oldValue, newValue) -> {
-            if (oldValue && !newValue) {
-                List<Constraint> constraints = passwordField.validate();
-                if (!constraints.isEmpty()) {
-                    passwordField.pseudoClassStateChanged(INVALID_PSEUDO_CLASS, true);
-                    passwordvalidationLabel.setText(constraints.getFirst().getMessage());
-                    passwordvalidationLabel.setVisible(true);
-                }
-            }
-        });
+    private void setFieldValidationWithConfirmPassword() {
+        setFieldValidation(emailField, emailvalidationLabel, passwordField, passwordvalidationLabel);
 
         Constraint confirmPasswordConstraint = Constraint.Builder.build()
                 .setSeverity(Severity.ERROR)
@@ -232,7 +145,7 @@ public class RegisterController implements Initializable {
 
     @FXML
     private void login() throws IOException {
-        Parent nextScene = FXMLLoader.load(ResourceLoader.getFxml("login.fxml"));
+        Parent nextScene = FXMLLoader.load(ResourceLoader.getFxml(LOGIN));
         Scene scene = container.getScene();
         nextScene.translateXProperty().set(-1 * scene.getWidth());
         rootPane.getChildren().add(nextScene);

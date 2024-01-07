@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
-import static com.tourism.asianex.Utils.Common.initializeToolBar;
+import static com.tourism.asianex.Utils.Common.*;
 
 public class HomeController implements Initializable {
     private static final Logger LOGGER = Logger.getLogger(HomeController.class.getName());
@@ -107,7 +107,7 @@ public class HomeController implements Initializable {
     }
 
     private void initializeLoader() {
-        loadFxml("explore.fxml");
+        loadFxml(EXPLORE);
     }
 
     private void loadFxml(String fxmlName) {
@@ -115,19 +115,19 @@ public class HomeController implements Initializable {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(ResourceLoader.getFxml(fxmlName));
             fxmlLoader.setControllerFactory(c -> switch (fxmlName) {
-                case "explore.fxml" -> {
+                case EXPLORE -> {
                     List<City> cities = getCities();
                     exploreController = new ExploreController(rootPane, cities);
                     yield exploreController;
                 }
-                case "saved.fxml" -> {
+                case SAVED -> {
                     List<City> savedCities = getSavedCities();
                     savedController = new SavedController(savedCities);
                     yield savedController;
                 }
-                case "chat.fxml" -> new ChatController();
-                case "profile.fxml" -> new ProfileController();
-                case "settings.fxml" -> new SettingsController(rootPane);
+                case CHAT -> new ChatController();
+                case PROFILE -> new ProfileController();
+                case SETTINGS -> new SettingsController(rootPane);
                 default -> null;
             });
             Parent fxml = fxmlLoader.load();
@@ -140,29 +140,29 @@ public class HomeController implements Initializable {
 
     @FXML
     private void handleExploreButton(ActionEvent event) {
-        loadFxml("explore.fxml");
+        loadFxml(EXPLORE);
     }
 
     @FXML
     private void handleSavedButton(ActionEvent event) {
-        loadFxml("saved.fxml");
+        loadFxml(SAVED);
     }
 
     @FXML
     private void handleChatButton(ActionEvent event) {
-        loadFxml("chat.fxml");
+        loadFxml(CHAT);
     }
 
 
     @FXML
     private void handleProfileButton(ActionEvent event) {
-        loadFxml("profile.fxml");
+        loadFxml(PROFILE);
     }
 
 
     @FXML
     private void handleSettingsButton(ActionEvent event) {
-        loadFxml("settings.fxml");
+        loadFxml(SETTINGS);
     }
 
     private void shutdownImages() {

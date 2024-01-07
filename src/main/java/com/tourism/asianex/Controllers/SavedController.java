@@ -1,14 +1,12 @@
 package com.tourism.asianex.Controllers;
 
 import com.tourism.asianex.Models.City;
-import com.tourism.asianex.ResourceLoader;
 import com.tourism.asianex.Services.ImageLoaderService;
 import io.github.palexdev.materialfx.controls.MFXScrollPane;
 import io.github.palexdev.materialfx.utils.ScrollUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.layout.GridPane;
@@ -21,6 +19,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
+
+import static com.tourism.asianex.Utils.Common.getPane;
 
 public class SavedController implements Initializable {
     private static final Logger LOGGER = Logger.getLogger(SavedController.class.getName());
@@ -73,13 +73,7 @@ public class SavedController implements Initializable {
     }
 
     private Pane loadCityPane(City city) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(ResourceLoader.getFxml("city.fxml"));
-        Pane pane = fxmlLoader.load();
-        CityController cityController = fxmlLoader.getController();
-        cityController.setCity(city);
-        imageLoaderService.loadImage(ResourceLoader.getImage(city.getImage()), cityController.getImageView());
-        return pane;
+        return getPane(city, imageLoaderService);
     }
 
     public void shutdownImages() {
