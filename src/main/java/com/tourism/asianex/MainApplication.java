@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.function.Consumer;
 
 public class MainApplication extends Application {
+    // TODO ADD MONGODB URL IN APPLICATION.PROPERTIES FILE IN RESOURCES FOLDER
 
     private static void setThemeListener(Scene scene) {
         final OsThemeDetector detector = OsThemeDetector.getDetector();
@@ -45,7 +46,7 @@ public class MainApplication extends Application {
                 .build()
                 .setGlobal();
         ResourceLoader.loadFonts();
-        FXMLLoader fxmlLoader = new FXMLLoader(ResourceLoader.getFxml("admin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ResourceLoader.getFxml("splash.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1080, 720, Color.TRANSPARENT);
         scene.getStylesheets().add(ResourceLoader.getCss("mainStyle.css"));
         setThemeListener(scene);
