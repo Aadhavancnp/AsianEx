@@ -8,6 +8,7 @@ import io.github.palexdev.materialfx.controls.cell.MFXTableRowCell;
 import io.github.palexdev.materialfx.filter.EnumFilter;
 import io.github.palexdev.materialfx.filter.IntegerFilter;
 import io.github.palexdev.materialfx.filter.StringFilter;
+import io.github.palexdev.materialfx.filter.base.AbstractFilter;
 import io.github.palexdev.materialfx.utils.others.observables.When;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -66,13 +67,13 @@ public class VisitorsController implements Initializable {
         setColumnStyle(phoneColumn);
         setColumnStyle(roleColumn);
 
-        visitorsTable.getTableColumns().addAll(idColumn, nameColumn, emailColumn, dateOfBirthColumn, phoneColumn, roleColumn);
+        List<MFXTableColumn<User>> columns = List.of(idColumn, nameColumn, emailColumn, dateOfBirthColumn, phoneColumn, roleColumn);
+
+        visitorsTable.getTableColumns().addAll(columns);
+
+        List<AbstractFilter<User, ?>> filters = List.of(new IntegerFilter<>("ID", User::getId), new StringFilter<>("Name", User::getName), new StringFilter<>("Email", User::getEmail), new StringFilter<>("Phone", User::getPhone), new EnumFilter<>("Role", User::getRole, Role.class));
         visitorsTable.getFilters().addAll(
-                new IntegerFilter<>("ID", User::getId),
-                new StringFilter<>("Name", User::getName),
-                new StringFilter<>("Email", User::getEmail),
-                new StringFilter<>("Phone", User::getPhone),
-                new EnumFilter<>("Role", User::getRole, Role.class)
+                filters
         );
         visitorsTable.setItems(users);
     }

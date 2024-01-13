@@ -3,6 +3,7 @@ package com.tourism.asianex.Controllers;
 import com.mongodb.reactivestreams.client.MongoCollection;
 import com.tourism.asianex.Models.City;
 import com.tourism.asianex.Services.MongoService;
+import com.tourism.asianex.Utils.Common;
 import com.tourism.asianex.Utils.SubscriberHelpers.OperationSubscriber;
 import io.github.palexdev.materialfx.controls.MFXPaginatedTableView;
 import io.github.palexdev.materialfx.controls.MFXTableColumn;
@@ -10,6 +11,7 @@ import io.github.palexdev.materialfx.controls.MFXTextField;
 import io.github.palexdev.materialfx.controls.cell.MFXTableRowCell;
 import io.github.palexdev.materialfx.filter.IntegerFilter;
 import io.github.palexdev.materialfx.filter.StringFilter;
+import io.github.palexdev.materialfx.filter.base.AbstractFilter;
 import io.github.palexdev.materialfx.utils.others.observables.When;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,10 +22,7 @@ import javafx.fxml.Initializable;
 import org.bson.Document;
 
 import java.net.URL;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import static com.mongodb.client.model.Filters.eq;
 import static com.tourism.asianex.Services.UtilService.errorBox;
@@ -91,7 +90,6 @@ public class DestinationsController implements Initializable {
         descriptionColumn.setRowCellFactory(city -> new MFXTableRowCell<>(City::getDescription) {{
             if (city.getDescription().length() > 10)
                 city.setDescription(city.getDescription().substring(0, 10) + "...");
-            setWrapText(true);
         }});
         descriptionColumn.setWrapText(true);
         priceColumn.setRowCellFactory(city -> new MFXTableRowCell<>(City::getPrice));
@@ -103,13 +101,15 @@ public class DestinationsController implements Initializable {
         setColumnStyle(priceColumn);
         setColumnStyle(noOfDaysColumn);
 
-        destinationsTable.getTableColumns().addAll(nameColumn, countryColumn, descriptionColumn, priceColumn, noOfDaysColumn);
-        destinationsTable.getFilters().addAll(
-                new StringFilter<>("Name", City::getName),
-                new StringFilter<>("Country", City::getCountry),
-                new IntegerFilter<>("Price", City::getPrice),
-                new IntegerFilter<>("No of Days", City::getNoOfDays)
-        );
+        List<MFXTableColumn<City>> columns = List.of(nameColumn, countryColumn, descriptionColumn, priceColumn, noOfDaysColumn);
+
+        destinationsTable.getTableColumns().addAll(columns);
+        List<AbstractFilter<City, ?>> filters = new ArrayList<>();
+        filters.add(new StringFilter<>("Name", City::getName));
+        filters.add(new StringFilter<>("Country", City::getCountry));
+        filters.add(new IntegerFilter<>("Price", City::getPrice));
+        filters.add(new IntegerFilter<>("No of Days", City::getNoOfDays));
+        destinationsTable.getFilters().addAll(filters);
         destinationsTable.setItems(cities);
     }
 
@@ -141,7 +141,7 @@ public class DestinationsController implements Initializable {
         int noOfDays = Integer.parseInt(Objects.equals(noOfDaysField.getText(), "") ? "0" : noOfDaysField.getText());
         String image = imageField.getText();
         if (name.isEmpty() || country.isEmpty() || description.isEmpty() || image.isEmpty()) {
-            errorBox("Please fill all the fields", "Error", "Error");
+            errorBox("Please fill all the fields", Common.ERROR, Common.ERROR);
             return;
         }
         City city = new City(name, country, description, image, price, noOfDays);
@@ -170,7 +170,7 @@ public class DestinationsController implements Initializable {
     void deleteCity(ActionEvent event) {
         City city = destinationsTable.getSelectionModel().getSelectedValue();
         if (city == null) {
-            errorBox("Please select a city to delete", "Error", "Error");
+            errorBox("Please select a city to delete", Common.ERROR, Common.ERROR);
             return;
         }
         cities.remove(city);
@@ -181,7 +181,7 @@ public class DestinationsController implements Initializable {
     void updateCity(ActionEvent event) {
         City city = destinationsTable.getSelectionModel().getSelectedValue();
         if (city == null) {
-            errorBox("Please select a city to update", "Error", "Error");
+            errorBox("Please select a city to update", Common.ERROR, Common.ERROR);
             return;
         }
         String name = nameField.getText();
@@ -191,7 +191,7 @@ public class DestinationsController implements Initializable {
         int noOfDays = Integer.parseInt(noOfDaysField.getText());
         String image = imageField.getText();
         if (name.isEmpty() || country.isEmpty() || description.isEmpty() || image.isEmpty()) {
-            errorBox("Please fill all the fields", "Error", "Error");
+            errorBox("Please fill all the fields", Common.ERROR, Common.ERROR);
             return;
         }
         city.setName(name);

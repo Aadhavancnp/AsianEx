@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
-import static com.tourism.asianex.Utils.Common.initializeToolBar;
+import static com.tourism.asianex.Utils.Common.*;
 
 public class AdminController implements Initializable {
     private static final Logger LOGGER = Logger.getLogger(AdminController.class.getName());
@@ -105,19 +105,19 @@ public class AdminController implements Initializable {
     }
 
     private void initializeLoader() {
-        loadFxml("dashboard.fxml");
+        loadFxml(DASHBOARD);
     }
 
     private void loadFxml(String fxmlName) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(ResourceLoader.getFxml(fxmlName));
             fxmlLoader.setControllerFactory(c -> switch (fxmlName) {
-                case "dashboard.fxml" -> new DashboardController();
-                case "destinations.fxml" -> new DestinationsController(getCities());
-                case "visitors.fxml" -> new VisitorsController(getUsers());
-                case "chat.fxml" -> new ChatController();
-                case "profile.fxml" -> new ProfileController();
-                case "settings.fxml" -> new SettingsController(rootPane);
+                case DASHBOARD -> new DashboardController();
+                case DESTINATIONS -> new DestinationsController(getCities());
+                case VISITORS -> new VisitorsController(getUsers());
+                case CHAT -> new ChatController();
+                case PROFILE -> new ProfileController();
+                case SETTINGS -> new SettingsController(rootPane);
                 default -> null;
             });
             Parent fxml = fxmlLoader.load();
@@ -130,33 +130,33 @@ public class AdminController implements Initializable {
 
     @FXML
     private void handleDashboardButton(ActionEvent event) {
-        loadFxml("dashboard.fxml");
+        loadFxml(DASHBOARD);
     }
 
     @FXML
     private void handleDestinationsButton(ActionEvent event) {
-        loadFxml("destinations.fxml");
+        loadFxml(DESTINATIONS);
     }
 
     @FXML
     private void handleVisitorsButton(ActionEvent event) {
-        loadFxml("visitors.fxml");
+        loadFxml(VISITORS);
     }
 
     @FXML
     private void handleChatButton(ActionEvent event) {
-        loadFxml("chat.fxml");
+        loadFxml(CHAT);
     }
 
 
     @FXML
     private void handleProfileButton(ActionEvent event) {
-        loadFxml("profile.fxml");
+        loadFxml(PROFILE);
     }
 
 
     @FXML
     private void handleSettingsButton(ActionEvent event) {
-        loadFxml("settings.fxml");
+        loadFxml(SETTINGS);
     }
 }

@@ -13,21 +13,16 @@ import io.github.palexdev.materialfx.dialogs.MFXStageDialog;
 import io.github.palexdev.materialfx.enums.ScrimPriority;
 import io.github.palexdev.materialfx.utils.ToggleButtonsUtil;
 import io.github.palexdev.mfxresources.fonts.MFXFontIcon;
-import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
@@ -37,6 +32,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 import static com.mongodb.client.model.Filters.eq;
+import static com.tourism.asianex.Utils.Common.screenTransition;
 
 public class SettingsController implements Initializable {
     private static final Logger LOGGER = Logger.getLogger(SettingsController.class.getName());
@@ -143,18 +139,10 @@ public class SettingsController implements Initializable {
     @FXML
     private void logoutScreen() {
         try {
-            Node removeScene = rootPane.getChildren().getFirst();
-            Parent nextScene = FXMLLoader.load(ResourceLoader.getFxml("login.fxml"));
-            rootPane.getChildren().addFirst(nextScene);
-
-            FadeTransition fadeOut = new FadeTransition(Duration.millis(900));
-            fadeOut.setOnFinished(t -> rootPane.getChildren().remove(removeScene));
-            fadeOut.setNode(removeScene);
-            fadeOut.setFromValue(1);
-            fadeOut.setToValue(0);
-            fadeOut.play();
+            screenTransition(rootPane);
         } catch (Exception e) {
             LOGGER.severe("Error logging out: " + e.getMessage());
         }
     }
+
 }

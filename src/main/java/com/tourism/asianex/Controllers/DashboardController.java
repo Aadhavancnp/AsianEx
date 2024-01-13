@@ -9,9 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class DashboardController implements Initializable {
     private final Map<String, Number> visitors = new HashMap<>();
@@ -42,7 +40,13 @@ public class DashboardController implements Initializable {
         lineSeries1 = new XYChart.Series<>();
         lineSeries2 = new XYChart.Series<>();
         lineChart.setLegendVisible(false);
-        lineChart.getData().addAll(lineSeries, lineSeries1, lineSeries2);
+
+        List<XYChart.Series<Number, Number>> seriesList = new ArrayList<>();
+        seriesList.add(lineSeries);
+        seriesList.add(lineSeries1);
+        seriesList.add(lineSeries2);
+        lineChart.getData().addAll(seriesList);
+
         realTimeVisitorsBox.getChildren().add(lineChart);
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
             addData(lineSeries, 10);

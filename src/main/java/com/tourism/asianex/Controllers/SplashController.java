@@ -13,10 +13,13 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 import static com.tourism.asianex.Services.UtilService.delay;
+import static com.tourism.asianex.Utils.Common.LOGIN;
 
 public class SplashController implements Initializable {
+    private static final Logger LOGGER = Logger.getLogger(SplashController.class.getName());
     @FXML
     private StackPane rootPane;
 
@@ -29,11 +32,11 @@ public class SplashController implements Initializable {
     }
 
     private void onSplashEnd() {
-        Parent nextScene;
+        Parent nextScene = null;
         try {
-            nextScene = FXMLLoader.load(ResourceLoader.getFxml("login.fxml"));
+            nextScene = FXMLLoader.load(ResourceLoader.getFxml(LOGIN));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            LOGGER.severe(e.getMessage());
         }
         rootPane.getChildren().addFirst(nextScene);
 
